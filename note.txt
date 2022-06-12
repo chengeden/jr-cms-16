@@ -1,0 +1,5 @@
+Deploy 部署
+mongodb atlas -> create project -> 连接本地数据库connection string通过atlas找
+server出错时自动重启，出错是server抛出异常 throw exception/error，安装package：npm i pm2(因为我们在这里不使用docker部署所以用pm2)
+-> package.json 添加start scripts和stop scripts 启动和关闭server -> 在poststart scripts里写打印日志
+

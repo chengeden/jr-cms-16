@@ -1,10 +1,10 @@
 const express = require('express');
-const {
-  getAllCourses,
-  getCourseById,
-  updateCourseById,
-  deleteCourseById,
-  addCourse,
+const { 
+  getAllCourses, 
+  getCourseById, 
+  updateCourseById, 
+  deleteCourseById, 
+  addCourse 
 } = require('../controllers/course');
 
 const courseRouter = express.Router();

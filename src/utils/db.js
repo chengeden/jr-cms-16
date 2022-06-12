@@ -3,14 +3,13 @@ const logger = require('./logger');
 
 function connectToDB() {
   const connectionString = process.env.CONNECTION_STRING;
-  if (!connectionString) {
-    // throw Error()
+  if(!connectionString) {
     logger.error('connection string not defined');
-    // 正常退出
-    // 非正常退出
+    // 正常退出：代码运行完了
+    // 非正常退出：代码运行出现错误，导致server/代码无法正常进行
     // 人为正常退出 process.exit(0)
-    // 人为非正常退出
-    process.exit(1);
+    // 非人为正常退出 process.exit(任何非0数字)
+    process.exit(1); // 把当前进程关闭
   }
   const db = mongoose.connection;
   db.on('connected', () => {
@@ -25,6 +24,7 @@ function connectToDB() {
   db.on('disconnected', () => {
     logger.info('db connection lost');
   });
+
   return mongoose.connect(connectionString);
 }
 
