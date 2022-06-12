@@ -1,8 +1,22 @@
 Deploy 部署
+平台 mongodb(云数据库)和AWS
+以前做法：把数据库和后端放在同一个server（虚拟机）里面
+现在做法：后端server和数据库分开部署
+更popular：通过容器化(container)部署，通过Kubernetes来管理
+
 mongodb atlas -> create project -> 连接本地数据库connection string通过atlas找
 server出错时自动重启，出错是server抛出异常 throw exception/error，安装package：npm i pm2(因为我们在这里不使用docker部署所以用pm2)
 -> package.json 添加start scripts和stop scripts 启动和关闭server -> 在poststart scripts里写打印日志
-
-AWS -> Elastic Beanstalk -> create application
+不用docker的时候可以用pm2，因为docker在服务器出错时有重启server的功能，如果使用容器管理就不用使用pm2了
 
 server往AWS上部署时有admission的问题权限问题 -> 根目录下创建 .npmrc
+
+AWS -> Elastic Beanstalk -> create application (devops一般不使用elastic beanstalk，会使用EC2)
+AWS -> CodePipeline(自动化部署-监听github仓库的更新，发现更新后自动pull下来更新到elastic beanstalk上) -> create pipeline
+
+AWS Elastic Beanstalk -> Configuration -> Software Edit -> 加环境变量：
+Windows系统：google search ras generator -> copy public key
+mac系统：console 输入 openssl rand 256 | base64 -> 复制key
+
+
+Docker 把项目打包，把本地的项目通过容器化的方式打包好
