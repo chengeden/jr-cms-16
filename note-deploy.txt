@@ -1,3 +1,5 @@
+Docker 把项目打包，把本地的项目通过容器化的方式打包好
+
 Deploy 部署
 平台 mongodb(云数据库)和AWS
 以前做法：把数据库和后端放在同一个server（虚拟机）里面
@@ -15,8 +17,9 @@ AWS -> Elastic Beanstalk -> create application (devops一般不使用elastic bea
 AWS -> CodePipeline(自动化部署-监听github仓库的更新，发现更新后自动pull下来更新到elastic beanstalk上) -> create pipeline
 
 AWS Elastic Beanstalk -> Configuration -> Software Edit -> 加环境变量：
+获取JWT_KEY的方法：
 Windows系统：google search ras generator -> copy public key
 mac系统：console 输入 openssl rand 256 | base64 -> 复制key
 
 
-Docker 把项目打包，把本地的项目通过容器化的方式打包好
+babel转化语法到es5 -> 如果es5没有这种语法，就没法转换可以用另个polyfill

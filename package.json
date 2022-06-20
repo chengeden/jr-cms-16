@@ -7,7 +7,8 @@
     "start": "pm2 start src/index.js --name jrCMS16",
     "poststart": "pm2 log jrCMS16",
     "stop": "pm2 stop jrCMS16",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
@@ -26,6 +27,9 @@
     "winston": "^3.7.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "@shelf/jest-mongodb": "^3.0.1",
+    "jest": "^28.1.1",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.3"
   }
 }
